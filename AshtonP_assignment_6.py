@@ -26,6 +26,14 @@ while user_input.upper() != "DONE":
         number = digitsOnly[3:6] + "-" + digitsOnly[6:]
         phone = area_code + number
 
+        # Smart state detection 
+        address_split = address.split(" ")
+        address = ""
+        for word in address_split:
+            if word.isalpha() and len(word) == 2:
+                word = word.upper()
+            address += " " + word
+
         contacts_dictionary[count] = {"name":name, "address":address, "phone":phone, "email":email} # Save our new formatted contact into a dictionary to pull from later
         count += 1 # increase our incriment
         
